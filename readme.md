@@ -4,8 +4,10 @@ This is an example minimal dependency Swift program taking advantage of the new
 experimental embedded mode.
 
 The dependencies are:
+
 Web:
 - Nothing at all, just a web browser with WebGL and WASM support.
+
 Windows/Mac/Linux:
 - SDL2
 
