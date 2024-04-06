@@ -1,4 +1,4 @@
-#  Standalone Swift Game
+# Standalone Swift Game
 
 This is an example minimal dependency Swift program taking advantage of the new
 experimental embedded mode.

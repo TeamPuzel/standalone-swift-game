@@ -1,11 +1,4 @@
 
-#if arch(wasm32)
-@_cdecl("main")
-public func __main() {
-    Main.main()
-}
-#endif
-
 @main
 struct Main: Game {
     mutating func update() {

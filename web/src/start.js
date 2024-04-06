@@ -9,9 +9,9 @@ let context = null
 let displayTexture = null
 
 /** @type number */
-let displayWidth = 0
+let displayWidth = 128
 /** @type number */
-let displayHeight = 0
+let displayHeight = 128
 
 /** 
  * @param { string } code
@@ -211,8 +211,8 @@ function createShader(context) {
 const env = {
     draw,
     random,
-    randomInRange,
-    panicHandler
+    panicHandler,
+    setDisplaySize
 }
 
 function draw(buf) {
@@ -231,14 +231,13 @@ function draw(buf) {
     context.drawArrays(context.TRIANGLES, 0, 6)
 }
 
-function random() {
-    return Math.random()
+function setDisplaySize(w, h) {
+    displayWidth = w
+    displayHeight = h
 }
 
-function randomInRange(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+function random() {
+    return Math.random()
 }
 
 function panicHandler(pointer, length) {
@@ -253,4 +252,4 @@ function decodeString(pointer, length) {
         length
     )
     return new TextDecoder().decode(slice);
-};
+}

@@ -10,15 +10,14 @@ extension CString: ExpressibleByStringLiteral {
         self.buffer = [CChar]()
         value.withUTF8Buffer { ptr in
             self.buffer.reserveCapacity(ptr.count + 1)
-            for char in ptr {
-                self.buffer.append(CChar(char))
-            }
+            for char in ptr { self.buffer.append(CChar(char)) }
             self.buffer.append(0)
         }
     }
     
     init(_ value: StaticString) {
-        self.buffer = [CChar]()
+        self.buffer = []
+        assert(value.isASCII)
         value.withUTF8Buffer { ptr in
             self.buffer.reserveCapacity(ptr.count + 1)
             for char in ptr {
